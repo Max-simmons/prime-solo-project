@@ -12,10 +12,10 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
+import AddGameForm from '../AddGameForm/AddGameFrom';
+import GameStats from '../GameStats/GameStats';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -34,7 +34,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -63,9 +63,15 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/addgame"
           >
-            <InfoPage />
+            {/* <AddGameForm /> */}
+          </ProtectedRoute>
+
+          <ProtectedRoute
+          exact path="/gamestats"
+          >
+            {/* <GameStats /> */}
           </ProtectedRoute>
 
           <Route

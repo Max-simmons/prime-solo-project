@@ -5,7 +5,7 @@ function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [number, setNumber] = useState('');
-  const [position, SetPosition] = useState('');
+  const [position, setPosition] = useState('');
   const [playstyle, setPlaystyle] = useState('');
 
   const errors = useSelector((store) => store.errors);
@@ -19,6 +19,9 @@ function RegisterForm() {
       payload: {
         username: username,
         password: password,
+        number: number,
+        position: position,
+        playstyle: playstyle
       },
     });
   }; // end registerUser
@@ -61,7 +64,7 @@ function RegisterForm() {
           <input
             type="number"
             name="number"
-            value="{number}"
+            value= {number}
             required
             onChange={(event) => setNumber(event.target.value)}
             />
@@ -71,8 +74,8 @@ function RegisterForm() {
         <label htmlFor="position">
         Position:
         </label>
-        <select name="position">
-          <option value="">--Choose Your Position</option>
+        <select id="position" onChange={(event) => setPosition(event.target.value)}>
+          <option value="">--Choose Your Position--</option>
           <option value="guard">Guard</option>
           <option value="wing">Wing</option>
           <option value="big">Big</option>
@@ -82,9 +85,11 @@ function RegisterForm() {
         <label htmlFor="playstyle">
           Playstyle:
         </label>
-        <select name="playstyle">
-          <option value="">How do you Play?</option>
-          <option value=""
+        <select id="playstyle" onChange={(event) => setPlaystyle(event.target.value)}>
+          <option value="">--How do you Play?--</option>
+          <option value="pass-first, defensive minded">Pass-first, Defensive minded</option>
+          <option value="two-way, sharpshooting">Two-way, Sharpshooting</option>
+          <option value="rim protecting, finishing">Rim Protecting, Finishing"</option>
 
         </select>
       </div>
