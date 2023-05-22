@@ -65,7 +65,7 @@ function App() {
             exact
             path="/addgame"
           >
-            {/* <AddGameForm /> */}
+            <AddGameForm />
           </ProtectedRoute>
 
           <ProtectedRoute
