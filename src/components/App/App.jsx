@@ -71,7 +71,7 @@ function App() {
           <ProtectedRoute
           exact path="/gamestats"
           >
-            {/* <GameStats /> */}
+            <GameStats />
           </ProtectedRoute>
 
           <Route
