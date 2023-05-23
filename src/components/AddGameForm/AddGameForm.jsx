@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 
 function AddGameForm() {
     const [points, setPoints] = useState('');
@@ -15,6 +16,7 @@ function AddGameForm() {
     const [myTeam, setMyteam] = useState('');
     const [opp, setOpp] = useState('');
     const dispatch = useDispatch();
+    const history = useHistory();
 
 
     // Game Score = Points Scored + (0.4 x Field Goals) – 
@@ -28,7 +30,7 @@ function AddGameForm() {
 
     let gameScore = Number(result.toFixed(2));
 
-    console.log('gamescore', Number(result.toFixed(2)));
+    // console.log('gamescore', Number(result.toFixed(2)));
     
 
     const handleClick = (event) => {
@@ -50,6 +52,7 @@ function AddGameForm() {
                 opp_score: opp
             }
         }) 
+        history.push('/user')
     }
 
 
