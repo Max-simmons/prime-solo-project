@@ -149,7 +149,7 @@ function AddGameForm() {
                 value={opp}
                 onChange={(event) => setOpp(Number(event.target.value))}/>
             </div>
-            {/* <button onClick={handleClick}>Add Game</button> */}
+            <button onClick={handleClick}>Add Game</button>
 
 
             

@@ -12,7 +12,7 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import AddGameForm from '../AddGameForm/AddGameFrom';
+import AddGameForm from '../AddGameForm/AddGameForm';
 import GameStats from '../GameStats/GameStats';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
