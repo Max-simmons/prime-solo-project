@@ -1,9 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 function GameItem({game}) {
+
+const dispatch = useDispatch();
 console.log('games', game);
 
 const newDate= new Date(game.date).toLocaleDateString('en-US');
+
+const deleteGame = (id) => {
+    dispatch({
+        type: 'SAGA/DELETE_GAME',
+        payload: game.id
+    })
+}
 
 return (
     <>
@@ -14,6 +24,7 @@ return (
     <td>{game.rebounds}</td>
     <td>{game.assists}</td>
     <td>{game.game_score}</td>
+    <td><button onClick={deleteGame}>Delete</button></td>
     </tr>
         
     </>
