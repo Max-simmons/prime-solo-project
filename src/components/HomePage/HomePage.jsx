@@ -9,6 +9,11 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   const history = useHistory();
   const dispatch = useDispatch();
+  const total = useSelector((state) => state.totalReducer);
+  const games = useSelector((store) => store.statsReducer);
+  const totalGames = games.length
+
+  console.log(totalGames);
 
   useEffect(() => {
     fetchStats();
@@ -27,21 +32,33 @@ const fetchTotals = () => {
     })
 }
 
-  const goToStats = () => {
+const goToStats = () => {
     history.push("/gamestats")
   }
 
-  const addGame = () => {
+const addGame = () => {
     history.push("/addgame")
   }
+
+
+
+console.log('points', total.total_points);
+  
   return (
+    <>
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+      <h2>#{user.number} {user.username}</h2>
+      <h4>{user.playstyle} {user.position}</h4>
+      
+      
       <button onClick={goToStats}>My Stats</button>
       <button onClick={addGame}>Add Game</button>
+    </div>
+
+    <div>
       <LogOutButton className="btn" />
     </div>
+    </>
   );
 }
 
