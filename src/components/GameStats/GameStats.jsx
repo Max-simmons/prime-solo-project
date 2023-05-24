@@ -19,6 +19,21 @@ function GameStats() {
 
     console.log(totalGames);
 
+    let avgPts = Math.round((Number(total.total_points)/totalGames)*100)/100;
+    let avgAst = Math.round((Number(total.total_assists)/totalGames)*100)/100;
+    let avgReb = Math.round((Number(total.total_rebounds)/totalGames)*100)/100;
+    let avgStl = Math.round((Number(total.total_steals)/totalGames)*100)/100;
+    let avgBl = Math.round((Number(total.total_blocks)/totalGames)*100)/100;
+    let avgFg = Math.round((Number(total.total_fg)/totalGames)*100)/100;
+    let avgFga = Math.round((Number(total.total_fga)/totalGames)*100)/100;
+
+    const fgPer = total.total_fg/total.total_fga
+
+    const fixedFgp = Math.round(fgPer * 100)
+
+
+    let avgTO = Math.round((Number(total.total_turnovers)/totalGames)*100)/100;
+
     const backButton = () => {
         history.push('/user');
     }
@@ -42,16 +57,18 @@ function GameStats() {
                 <td>Assist Per Game</td>
                 <td>Steals Per Game</td>
                 <td>Blocks Per Game</td>
-                <td>Turnovers Per Game</td>
                 <td>Field Goal/Attempted Per Game:</td>
+                <td>Turnovers Per Game</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{avgPts}</td>
+                <td>{avgReb}</td>
+                <td>{avgAst}</td>
+                <td>{avgStl}</td>
+                <td>{avgBl}</td>
+                <td>{avgFg}/{avgFga}</td>
+                <td>{avgTO}</td>
+                
             </tr>
             <tr>
                 <td>Total Points</td>
@@ -63,13 +80,13 @@ function GameStats() {
                 <td>Field Goal Percentage</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{total.total_points}</td>
+                <td>{total.total_rebounds}</td>
+                <td>{total.total_assists}</td>
+                <td>{total.total_steals}</td>
+                <td>{total.total_blocks}</td>
+                <td>{total.total_turnovers}</td>
+                <td>{fixedFgp}%</td>
             </tr>
         </table>
         </div>
