@@ -5,7 +5,9 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-  pool.query(`SELECT * FROM "game_stats"`)
+  let sqlValues = [req.user.id]
+  pool.query(`SELECT * FROM "game_stats"
+	WHERE user_id = $1;`, sqlValues)
     .then(dbRes => {
       res.send(dbRes.rows);
     }).catch(dbErr => {

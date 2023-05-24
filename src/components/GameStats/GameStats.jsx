@@ -1,28 +1,39 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 import GameItem from './GameItem/GameItem';
 
 function GameStats() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    useEffect(() => {
+        fetchStats();
+    }, [])
+
 
     const games = useSelector((store) => store.statsReducer)
+
+    const totalGames = games.length
+
+    console.log(totalGames);
 
     const backButton = () => {
         history.push('/user');
     }
     // console.log('games', games);
-
-   
+    const fetchStats = () => {
+        dispatch({
+            type: 'SAGA/FETCH_STATS'
+        })
+    } 
 
     return(
         <>
         <div>
             <h2>My Stats</h2>
         </div>
-
         <div>
         <table>
             <thead>

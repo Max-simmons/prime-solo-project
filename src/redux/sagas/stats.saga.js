@@ -28,6 +28,19 @@ function* fetchFullGameStats(action) {
         console.log('gameid', gameId);
     }
 }
+
+function* fetchTotalsStats {
+    try{
+        const totals = yield axios.get('/api/stats');
+        yield put({
+            type: 'SET_TOTALS',
+            payload: totals.data
+        })
+    } catch (err) {
+        console.log('Error in getting totals', err);
+    }
+}
+
 function* sagaFetchStats() {
     yield takeLatest('SAGA/FETCH_STATS', fetchStats);
     yield takeLatest('FETCH_FULL_GAME_STATS', fetchFullGameStats);
