@@ -3,6 +3,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Header from '../Header/Header';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -46,6 +47,9 @@ console.log('points', total.total_points);
   
   return (
     <>
+    <header>
+      <Header  />
+    </header>
     <div className="container">
       <h2>#{user.number} {user.username}</h2>
       <h4>{user.playstyle} {user.position}</h4>

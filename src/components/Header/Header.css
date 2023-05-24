@@ -1,0 +1,10 @@
+.logo {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+.header {
+background: rgb(240,240,240);
+background: radial-gradient(circle, rgba(240,240,240,1) 22%, rgba(252,164,19,1) 42%, rgba(255,255,255,1) 90%);
+}
