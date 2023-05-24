@@ -12,11 +12,18 @@ function UserPage() {
 
   useEffect(() => {
     fetchStats();
+    fetchTotals();
 }, [])
 
 const fetchStats = () => {
     dispatch({
         type: 'SAGA/FETCH_STATS'
+    })
+}
+
+const fetchTotals = () => {
+    dispatch({
+      type: 'FETCH_TOTAL_STATS'
     })
 }
 

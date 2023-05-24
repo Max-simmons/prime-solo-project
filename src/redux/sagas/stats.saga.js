@@ -29,9 +29,9 @@ function* fetchFullGameStats(action) {
     }
 }
 
-function* fetchTotalsStats {
+function* fetchTotalsStats() {
     try{
-        const totals = yield axios.get('/api/stats');
+        const totals = yield axios.get('/api/stats/total');
         yield put({
             type: 'SET_TOTALS',
             payload: totals.data
@@ -44,6 +44,6 @@ function* fetchTotalsStats {
 function* sagaFetchStats() {
     yield takeLatest('SAGA/FETCH_STATS', fetchStats);
     yield takeLatest('FETCH_FULL_GAME_STATS', fetchFullGameStats);
-    yield takeLatest('FETCH_TOTAL_STATS');
+    yield takeLatest('FETCH_TOTAL_STATS', fetchTotalsStats);
 }
 export default sagaFetchStats;

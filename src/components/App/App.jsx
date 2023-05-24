@@ -15,7 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AddGameForm from '../AddGameForm/AddGameForm';
 import GameStats from '../GameStats/GameStats';
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/HomePage';
+import UserPage from '../HomePage/HomePage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
