@@ -11,7 +11,7 @@ function MoreStatsPage() {
 
     useEffect(() => {
         dispatch({
-            type: 'FETCH_GAME_STATS',
+            type: 'FETCH_FULL_GAME_STATS',
             payload: gameId
         })
     }, [])
