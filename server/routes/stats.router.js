@@ -86,4 +86,25 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     })
 })
 
+router.get('/', rejectUnauthenticated, (req, res) => {
+  let sqlValues = [req.user.id]
+  pool.query(`SELECT 
+	SUM(points) AS total_points,
+	SUM(rebounds) AS total_rebounds, 
+	SUM(assists) AS total_assists,
+	SUM(steals) AS total_steals,
+	SUM(blocks) AS total_blocks,
+	SUM(fg) AS total_fg,
+	SUM(fga) AS total_fg,
+	SUM(turnovers) AS total_turnovers,
+	SUM(game_score) AS total_gamescore
+	FROM "game_stats"
+	WHERE user_id = 1;`, sqlValues)
+    .then(dbRes => {
+      res.send(dbRes.rows);
+    }).catch(dbErr => {
+      console.log('Error connecting with DB:', dbErr);
+    })
+});
+
 module.exports = router;

@@ -44,5 +44,6 @@ function* fetchTotalsStats {
 function* sagaFetchStats() {
     yield takeLatest('SAGA/FETCH_STATS', fetchStats);
     yield takeLatest('FETCH_FULL_GAME_STATS', fetchFullGameStats);
+    yield takeLatest('FETCH_TOTAL_STATS');
 }
 export default sagaFetchStats;
