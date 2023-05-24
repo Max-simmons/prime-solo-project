@@ -19,7 +19,7 @@ const deleteGame = () => {
 }
 
 const moreStatsPage = () => {
-
+    history.push(`/morestats/${game.id}`);
 }
 
 
@@ -33,7 +33,7 @@ return (
     <td>{game.assists}</td>
     <td>{game.turnovers}</td>
     <td>{game.game_score}</td>
-    {/* <td onClick={moreStatsPage}>More Stats</td> */}
+    <td><button onClick={moreStatsPage}>More Stats</button></td>
     <td><button onClick={deleteGame}>Delete</button></td>
     </tr>
         

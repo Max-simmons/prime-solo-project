@@ -76,7 +76,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-          exact path="/morestats"
+          exact path="/morestats/:id"
           >
             <MoreStatsPage />
           </ProtectedRoute>
