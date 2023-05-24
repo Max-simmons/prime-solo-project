@@ -6,13 +6,30 @@ function* fetchStats() {
         const stats = yield axios.get('/api/stats');
         console.log('in fetch stats', stats.data);
         yield put({
-            type: 'SET_STATS', payload: stats.data
+            type: 'SET_STATS', 
+            payload: stats.data
         })
     } catch {
         console.log('error couldnt get stats');
     }
 }
+
+function* fetchFullGameStats(action) {
+    const gameId = action.payload;
+    try {
+        const game = yield axios.get(`/api/stats/${gameId}`);
+        const fullGameStats = game.data;
+        yield put({
+            type: 'SET_FULL_GAME_STATS',
+            payload: fullGameStats
+        })
+    } catch (err) {
+        console.log('getting full game stats err', err);
+        console.log('gameid', gameId);
+    }
+}
 function* sagaFetchStats() {
-    yield takeLatest('SAGA/FETCH_STATS', fetchStats)
+    yield takeLatest('SAGA/FETCH_STATS', fetchStats);
+    yield takeLatest('FETCH_FULL_GAME_STATS', fetchFullGameStats);
 }
 export default sagaFetchStats;

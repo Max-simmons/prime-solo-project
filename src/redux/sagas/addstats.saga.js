@@ -12,26 +12,10 @@ function* addGame(action) {
     }
 }
 
-function* fetchFullGameStats(action) {
-    const gameId = action.payload;
-    try {
-        const response = yield axios({
-            method: 'GET',
-            url: `/api/gamestats/${gameId}`
-        })
-        const fullGameStats = response.data;
-        yield put({
-            type: 'SET_FULL_GAME_STATS',
-            payload: fullGameStats
-        })
-    } catch (err) {
-        console.log('getting full game stats', err);
-    }
-}
+
 
 function* sagaAddGame() {
     yield takeLatest('SAGA/ADD_GAME', addGame);
-    yield takeLatest('SAGA/ADD_FULL_GAME', fetchFullGameStats);
 
 }
 

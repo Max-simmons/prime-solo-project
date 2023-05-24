@@ -1,8 +1,10 @@
-const fullGameStatsReducer = (state={}, action) => {
-    if (action.type === 'SET_FULL_GAME_STATS') {
-        return action.payload
+const fullGameStatsReducer = (state=[], action) => {
+    switch (action.type) {
+        case 'SET_FULL_GAME_STATS':
+            return action.payload
+        default:
+            return state
     }
-    return state;
 }
 
 export default fullGameStatsReducer;

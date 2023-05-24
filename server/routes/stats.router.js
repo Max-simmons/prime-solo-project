@@ -61,4 +61,27 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  const gameId = req.params.id;
+  const userId = req.user.id;
+  console.log('getting full stats');
+
+  const sqlText = `
+  SELECT * FROM "game_stats"
+	WHERE "game_stats"."id"= $1
+  AND "user_id" = $2  
+  `
+  const sqlValues = [gameId, userId];
+
+  pool.query(sqlText, sqlValues)
+    .then((dbRes) => {
+      const theGame = dbRes.rows[0];
+      res.send(theGame);
+    })
+    .catch((dbErr) => {
+      console.log('/api/gamestats/:id error:', dbErr);
+      res.sendStatus(500);
+    })
+})
+
 module.exports = router;
