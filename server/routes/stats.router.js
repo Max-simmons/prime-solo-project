@@ -24,13 +24,14 @@ router.get('/total', rejectUnauthenticated, (req, res) => {
 	SUM(steals) AS total_steals,
 	SUM(blocks) AS total_blocks,
 	SUM(fg) AS total_fg,
-	SUM(fga) AS total_fg,
+	SUM(fga) AS total_fga,
 	SUM(turnovers) AS total_turnovers,
 	SUM(game_score) AS total_gamescore
 	FROM "game_stats"
 	WHERE user_id = $1;`, sqlValues)
     .then(dbRes => {
-      res.send(dbRes.rows);
+      console.log(dbRes.rows);
+      res.send(dbRes.rows[0]);
     }).catch(dbErr => {
       console.log('Error connecting with DB:', dbErr);
     })

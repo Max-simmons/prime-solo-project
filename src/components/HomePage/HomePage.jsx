@@ -14,7 +14,20 @@ function UserPage() {
   const games = useSelector((store) => store.statsReducer);
   const totalGames = games.length
 
-  console.log(totalGames);
+  // console.log(total);
+
+  // let {total_points, total_rebounds, total_assists,
+  //    total_steals, total_blocks, total_fg, total_fga, total_turnovers, total_gamescore} = total;
+  console.log(total);
+
+  console.log('points', total.total_points);
+
+  let avgPts = Math.round((Number(total.total_points)/totalGames)*100)/100;
+  let avgAs = Math.round((Number(total.total_assists)/totalGames)*100)/100;
+  let avgReb = Math.round((Number(total.total_rebounds)/totalGames)*100)/100;
+  let avgTurn = Math.round((Number(total.total_turnovers)/totalGames)*100)/100;
+  let avgGmSc = Math.round((Number(total.total_gamescore)/totalGames)*100)/100;
+console.log(avgPts);
 
   useEffect(() => {
     fetchStats();
@@ -43,7 +56,7 @@ const addGame = () => {
 
 
 
-console.log('points', total.total_points);
+// console.log('points', total.total_points);
   
   return (
     <>
@@ -53,6 +66,7 @@ console.log('points', total.total_points);
     <div className="container">
       <h2>#{user.number} {user.username}</h2>
       <h4>{user.playstyle} {user.position}</h4>
+      <p>GP: {totalGames} PPG: {avgPts} RPG: {avgReb} APG: {avgAs} TOPG: {avgTurn} AVG GAMESCORE: {avgGmSc}</p>
       
       
       <button onClick={goToStats}>My Stats</button>

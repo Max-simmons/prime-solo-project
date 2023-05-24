@@ -12,7 +12,7 @@ function GameStats() {
         fetchStats();
     }, [])
 
-
+    const total = useSelector((state) => state.totalReducer)
     const games = useSelector((store) => store.statsReducer)
 
     const totalGames = games.length
@@ -36,15 +36,54 @@ function GameStats() {
         </div>
         <div>
         <table>
+            <tr>
+                <td>Points Per Game:</td>
+                <td>Rebounds Per Game:</td>
+                <td>Assist Per Game</td>
+                <td>Steals Per Game</td>
+                <td>Blocks Per Game</td>
+                <td>Turnovers Per Game</td>
+                <td>Field Goal/Attempted Per Game:</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Total Points</td>
+                <td>Total Rebounds</td>
+                <td>Total Assists</td>
+                <td>Total Steals</td>
+                <td>Total Blocks</td>
+                <td>Total Turnovers</td>
+                <td>Field Goal Percentage</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        </div>
+        <div>
+        <table>
             <thead>
                 <tr>
                     <th>Date</th>
                     <th>Score</th>
-                    <th>Points</th>
-                    <th>Rebounds</th>
-                    <th>Assist</th>
-                    <th>Turnovers</th>
-                    <th>Game Score</th>
+                    <th>PTS</th>
+                    <th>TRB</th>
+                    <th>AST</th>
+                    <th>TOV</th>
+                    <th>GmSc</th>
                 </tr>
             </thead>
             <tbody>

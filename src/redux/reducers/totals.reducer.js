@@ -1,4 +1,4 @@
-const totalReducer = (state = [], action) => {
+const totalReducer = (state = {}, action) => {
     switch (action.type){
         case 'SET_TOTALS':
             return action.payload;
