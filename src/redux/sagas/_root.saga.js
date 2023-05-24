@@ -4,7 +4,7 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import sagaFetchStats from './stats.saga';
 import sagaAddGame from './addstats.saga';
-import sagaDeleteStats from './delete_game.saga';
+import sagaDeleteGame from './delete_game.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -20,6 +20,6 @@ export default function* rootSaga() {
     userSaga(),
     sagaFetchStats(), 
     sagaAddGame(),
-    sagaDeleteStats()
+    sagaDeleteGame()
   ]);
 }

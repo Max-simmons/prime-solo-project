@@ -19,6 +19,7 @@ import UserPage from '../UserPage/HomePage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import MoreStatsPage from '../MoreStatsPage/MoreStatsPage';
 
 import './App.css';
 
@@ -72,6 +73,12 @@ function App() {
           exact path="/gamestats"
           >
             <GameStats />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+          exact path="/morestats"
+          >
+            <MoreStatsPage />
           </ProtectedRoute>
 
           <Route

@@ -55,6 +55,10 @@ function AddGameForm() {
         history.push('/user')
     }
 
+    const handleHome = () => {
+        history.push('/user');
+    }
+
 
     return(
         <>
@@ -153,6 +157,7 @@ function AddGameForm() {
                 onChange={(event) => setOpp(Number(event.target.value))}/>
             </div>
             <button onClick={handleClick}>Add Game</button>
+            <button onClick={handleHome}>Home</button>
 
 
             

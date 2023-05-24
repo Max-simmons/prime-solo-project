@@ -49,4 +49,16 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  const idToDelete = req.params.id;
+  const sqlQuery = `DELETE FROM game_stats WHERE id = $1;`
+
+  pool.query(sqlQuery, [idToDelete])
+    .then(dbRes => {
+      res.send(200)
+    }).catch(dbErr => {
+      console.log('Error connecting with DB', dbErr);
+    })
+});
+
 module.exports = router;

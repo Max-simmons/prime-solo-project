@@ -13,7 +13,7 @@ function GameStats() {
     const backButton = () => {
         history.push('/user');
     }
-    console.log('games', games);
+    // console.log('games', games);
 
    
 
@@ -32,6 +32,7 @@ function GameStats() {
                     <th>Points</th>
                     <th>Rebounds</th>
                     <th>Assist</th>
+                    <th>Turnovers</th>
                     <th>Game Score</th>
                 </tr>
             </thead>

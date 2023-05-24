@@ -11,8 +11,8 @@ function* deleteGame (action) {
     }
 }
 
-function* sagaDeleteStats() {
+function* sagaDeleteGame() {
     yield takeLatest('SAGA/DELETE_GAME', deleteGame)
 }
 
-export default sagaDeleteStats;
+export default sagaDeleteGame;
