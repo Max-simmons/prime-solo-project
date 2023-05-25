@@ -66,7 +66,7 @@ const addGame = () => {
     <div className="container">
       <h2>#{user.number} {user.username}</h2>
       <h4>{user.playstyle} {user.position}</h4>
-      <p>GP: {totalGames} PPG: {avgPts} RPG: {avgReb} APG: {avgAst} TOPG: {avgTO} AVG GAMESCORE: {avgGmSc}</p>
+      <p>GP: {totalGames} || PPG: {avgPts} || RPG: {avgReb} || APG: {avgAst} || TOPG: {avgTO} || AVG GAMESCORE: {avgGmSc}</p>
       
       
       <button onClick={goToStats}>My Stats</button>

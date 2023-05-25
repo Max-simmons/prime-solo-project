@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import GameItem from './GameItem/GameItem';
+import './GameStats.css';
 
 function GameStats() {
     const dispatch = useDispatch();
@@ -50,14 +51,14 @@ function GameStats() {
             <h2>My Stats</h2>
         </div>
         <div>
-        <table>
+        <table className= "careerStats">
             <tr>
-                <td>Points Per Game:</td>
-                <td>Rebounds Per Game:</td>
+                <td>Points Per Game</td>
+                <td>Rebounds Per Game</td>
                 <td>Assist Per Game</td>
                 <td>Steals Per Game</td>
                 <td>Blocks Per Game</td>
-                <td>Field Goal/Attempted Per Game:</td>
+                <td>Field Goal/Attempts Per Game:</td>
                 <td>Turnovers Per Game</td>
             </tr>
             <tr>
@@ -76,8 +77,9 @@ function GameStats() {
                 <td>Total Assists</td>
                 <td>Total Steals</td>
                 <td>Total Blocks</td>
-                <td>Total Turnovers</td>
                 <td>Field Goal Percentage</td>
+                <td>Total Turnovers</td>
+                
             </tr>
             <tr>
                 <td>{total.total_points}</td>
@@ -85,13 +87,15 @@ function GameStats() {
                 <td>{total.total_assists}</td>
                 <td>{total.total_steals}</td>
                 <td>{total.total_blocks}</td>
-                <td>{total.total_turnovers}</td>
                 <td>{fixedFgp}%</td>
+                <td>{total.total_turnovers}</td>
+                
             </tr>
         </table>
         </div>
         <div>
-        <table>
+        <h4>Game Stats</h4>
+        <table className="gameStats">
             <thead>
                 <tr>
                     <th>Date</th>

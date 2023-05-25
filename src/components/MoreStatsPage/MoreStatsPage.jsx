@@ -29,6 +29,15 @@ function MoreStatsPage() {
         history.push('/gamestats');
     }
 
+    const deleteGame = () => {
+        console.log('clicked', game.id);
+        dispatch({
+            type: 'SAGA/DELETE_GAME',
+            payload: game.id
+        })
+        history.push('/gamestats');
+    }
+
 
     return(
         <>
@@ -42,6 +51,7 @@ function MoreStatsPage() {
         <p>Field Goals: {game.fg}/{game.fga}</p>
         <p>Field Goal Pecentage: {fixedfgp}%</p>
         <button onClick= {backButton}>Back</button>
+        <td><button onClick={deleteGame}>Delete</button></td>
 
         
         </>

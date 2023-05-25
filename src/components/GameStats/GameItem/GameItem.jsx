@@ -10,13 +10,13 @@ console.log('games', game);
 
 const newDate= new Date(game.date).toLocaleDateString('en-US');
 
-const deleteGame = () => {
-    console.log('clicked', game.id);
-    dispatch({
-        type: 'SAGA/DELETE_GAME',
-        payload: game.id
-    })
-}
+// const deleteGame = () => {
+//     console.log('clicked', game.id);
+//     dispatch({
+//         type: 'SAGA/DELETE_GAME',
+//         payload: game.id
+//     })
+// }
 
 const moreStatsPage = () => {
     history.push(`/morestats/${game.id}`);
@@ -34,7 +34,7 @@ return (
     <td>{game.turnovers}</td>
     <td>{game.game_score}</td>
     <td><button onClick={moreStatsPage}>More Stats</button></td>
-    <td><button onClick={deleteGame}>Delete</button></td>
+    {/* <td><button onClick={deleteGame}>Delete</button></td> */}
     </tr>
         
     </>
