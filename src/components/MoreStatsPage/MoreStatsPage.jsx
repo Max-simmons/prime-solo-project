@@ -23,7 +23,7 @@ function MoreStatsPage() {
 
     const fixedfgp = Math.round(fieldGoalPercentage * 100)
 
-    console.log(fixedfgp)
+    // console.log(fixedfgp)
 
     const backButton = () => {
         history.push('/gamestats');
@@ -36,6 +36,10 @@ function MoreStatsPage() {
             payload: game.id
         })
         history.push('/gamestats');
+    }
+
+    const editGame = () => {
+        history.push(`/morestats/editstats/${game.id}`);
     }
 
 
@@ -51,7 +55,8 @@ function MoreStatsPage() {
         <p>Field Goals: {game.fg}/{game.fga}</p>
         <p>Field Goal Pecentage: {fixedfgp}%</p>
         <button onClick= {backButton}>Back</button>
-        <td><button onClick={deleteGame}>Delete</button></td>
+        <button onClick={deleteGame}>Delete</button>
+        <button onClick={editGame}>Edit Game</button>
 
         
         </>

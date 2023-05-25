@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import MoreStatsPage from '../MoreStatsPage/MoreStatsPage';
+import EditStatsForm from '../EditStatsForm/EditStatsForm';
 
 import './App.css';
 
@@ -79,6 +80,12 @@ function App() {
           exact path="/morestats/:id"
           >
             <MoreStatsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+
+            exact path="/morestats/editstats/:id">
+            <EditStatsForm />
           </ProtectedRoute>
 
           <Route
