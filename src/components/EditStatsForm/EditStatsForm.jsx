@@ -17,7 +17,7 @@ function EditStatsForm() {
     const [fg, setFg] = useState(game.fg);
     const [fga, setFga] = useState(game.fga);
     const [turnovers, setTurnovers] = useState(game.turnovers);
-    
+
     useEffect(() => {
         dispatch({
             type: 'FETCH_FULL_GAME_STATS',
@@ -55,9 +55,15 @@ function EditStatsForm() {
     }, [points, rebounds, assists, steals, blocks, fg, fga, turnovers])
     
     const backButton = () => {
-        history.push('/morestats')
+        history.push('/morestats/:id')
 
     }
+
+    let result = (points) + (0.4 * fg) -
+    (0.7 * fga) + (0.5 * rebounds) + steals
+    + (0.7 * assists) + (0.7 * blocks) - turnovers 
+
+    let gameScore = Number(result.toFixed(2));
 
     const editStats = () => {
         dispatch({
@@ -71,11 +77,11 @@ function EditStatsForm() {
                 blocks: blocks,
                 fg: fg,
                 fga: fga,
-                turnovers: turnovers
+                turnovers: turnovers,
+                game_score: gameScore
             }
         })
-
-    
+        history.push('/morestats/:id')
     }
 
     return (
@@ -88,7 +94,7 @@ function EditStatsForm() {
                         <input
                             type='number'
                             value={points}
-                            onChange={(event) => setPoints(event.target.value)}
+                            onChange={(event) => setPoints(Number(event.target.value))}
                         />
                     </label>
                 </div>
@@ -98,7 +104,7 @@ function EditStatsForm() {
                         <input
                             type='number'
                             value={rebounds}
-                            onChange={(event) => setRebounds(event.target.value)}
+                            onChange={(event) => setRebounds(Number(event.target.value))}
                         />
                     </label>
                 </div>
@@ -108,7 +114,7 @@ function EditStatsForm() {
                         <input
                             type='number'
                             value={assists}
-                            onChange={(event) => setAssists(event.target.value)}
+                            onChange={(event) => setAssists(Number(event.target.value))}
                         />
                     </label>
                 </div>
@@ -118,7 +124,7 @@ function EditStatsForm() {
                         <input
                             type='number'
                             value={steals}
-                            onChange={(event) => setSteals(event.target.value)}
+                            onChange={(event) => setSteals(Number(event.target.value))}
                         />
                     </label>
                 </div>
@@ -128,7 +134,7 @@ function EditStatsForm() {
                         <input
                             type='number'
                             value={blocks}
-                            onChange={(event) => setBlocks(event.target.value)}
+                            onChange={(event) => setBlocks(Number(event.target.value))}
                         />
                     </label>
                 </div>
@@ -138,13 +144,13 @@ function EditStatsForm() {
                         <input
                             type='number'
                             value={fg}
-                            onChange={(event) => setFg(event.target.value)}
+                            onChange={(event) => setFg(Number(event.target.value))}
                         />
                         <>/</>
                         <input
                             type='number'
                             value={fga}
-                            onChange={(event) => setFga(event.target.value)}
+                            onChange={(event) => setFga(Number(event.target.value))}
                         />
                     </label>
                 </div>
@@ -154,7 +160,7 @@ function EditStatsForm() {
                         <input
                             type='number'
                             value={turnovers}
-                            onChange={(event) => setTurnovers(event.target.value)}
+                            onChange={(event) => setTurnovers(Number(event.target.value))}
                         />
                     </label>
                 </div>

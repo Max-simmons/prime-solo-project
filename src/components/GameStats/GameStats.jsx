@@ -11,6 +11,7 @@ function GameStats() {
 
     useEffect(() => {
         fetchStats();
+        fetchTotals();
     }, [])
 
     const total = useSelector((state) => state.totalReducer)
@@ -44,6 +45,12 @@ function GameStats() {
             type: 'SAGA/FETCH_STATS'
         })
     } 
+
+    const fetchTotals = () => {
+        dispatch({
+          type: 'FETCH_TOTAL_STATS'
+        })
+    }
 
     return(
         <>

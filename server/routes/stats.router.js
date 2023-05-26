@@ -108,7 +108,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 router.put('/:id', rejectUnauthenticated, (req,res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
     const newPoints = req.body.points;
     const newRebounds = req.body.rebounds;
@@ -118,6 +118,7 @@ router.put('/:id', rejectUnauthenticated, (req,res) => {
     const newFg = req.body.fg;
     const newFga = req.body.fga;
     const newTurnovers = req.body.turnovers;
+    const newGameScore = req.body.game_score;
     const statId = req.params.id;
     const userId = req.user.id;
 
@@ -130,12 +131,13 @@ router.put('/:id', rejectUnauthenticated, (req,res) => {
       "blocks" = $5,
       "fg" = $6,
       "fga" = $7,
-      "turnovers" = $8
-    WHERE "id" = $9
-      AND "user_id" = $10
+      "turnovers" = $8,
+      "game_score" = $9
+    WHERE "id" = $10
+      AND "user_id" = $11
     `
     const sqlValues = [newPoints, newRebounds, newAssists, newSteals,
-      newBlocks, newFg, newFga, newTurnovers, statId, userId];
+      newBlocks, newFg, newFga, newTurnovers, newGameScore,statId, userId];
     
     pool.query(sqlQuery, sqlValues)
       .then((dbRes) => {
