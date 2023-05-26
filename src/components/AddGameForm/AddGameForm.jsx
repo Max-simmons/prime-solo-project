@@ -116,6 +116,7 @@ function AddGameForm() {
                 type='number'
                 value={fg}
                 onChange={(event) => setFg(Number(event.target.value))}/>
+                <>/</>
                 <input
                 type='number'
                 value={fga}

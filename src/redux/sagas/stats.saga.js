@@ -41,6 +41,23 @@ function* fetchTotalsStats() {
     }
 }
 
+function* finalizeStatsEdit(action) {
+    try {
+        const editedStats = action.payload
+
+        const response = yield axios({
+            method: 'PUT',
+            url: `/api/stats/${editedStats.id}`,
+            data: editedStats = action.payload
+        })
+        yield put ({
+            type: 'SAGA/FETCH_STATS'
+        })
+    } catch (err) {
+        console.log('editing fail', err);
+    }
+}
+
 function* sagaFetchStats() {
     yield takeLatest('SAGA/FETCH_STATS', fetchStats);
     yield takeLatest('FETCH_FULL_GAME_STATS', fetchFullGameStats);
