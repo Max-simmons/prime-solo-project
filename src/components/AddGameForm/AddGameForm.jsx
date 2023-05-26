@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import Header from '../Header/Header';
+import './AddGameForm.css';
 
 function AddGameForm() {
     const [points, setPoints] = useState('');
@@ -62,7 +64,11 @@ function AddGameForm() {
 
     return(
         <>
+        <header>
+            <Header />
+        </header>
         <h2>Add Game</h2>
+        <section className = "container">
         <form>
             <div>
             <label>
@@ -111,7 +117,7 @@ function AddGameForm() {
             </div>
             <div> 
             <label>
-                Field Goals/Attempted 
+                Field Goals/Attempted:
                 <input
                 type='text'
                 value={fg}
@@ -155,15 +161,19 @@ function AddGameForm() {
                 placeholder='Opponent'
                 type='text'
                 value={opp}
-                onChange={(event) => setOpp(Number(event.target.value))}/>
-            </div>
+               
+               onChange={(event) => setOpp(Number(event.target.value))}/>
+            </div>         
+        </form>
+        
+        </section>
+        <div>
             <button onClick={handleHome}>Home</button>
             <button onClick={handleClick}>Add Game</button>
-            
 
+        </div>
 
-            
-        </form>
+        
         </>
     )
 }

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import GameItem from './GameItem/GameItem';
 import './GameStats.css';
+import Header from '../Header/Header';
 
 function GameStats() {
     const dispatch = useDispatch();
@@ -54,6 +55,9 @@ function GameStats() {
 
     return(
         <>
+        <header>
+            <Header />
+        </header>
         <div>
             <h2>My Stats</h2>
         </div>

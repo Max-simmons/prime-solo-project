@@ -55,7 +55,7 @@ function EditStatsForm() {
     }, [points, rebounds, assists, steals, blocks, fg, fga, turnovers])
     
     const backButton = () => {
-        history.push('/morestats/:id')
+        history.push(`/morestats/${game.id}`)
 
     }
 
