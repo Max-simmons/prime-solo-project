@@ -25,6 +25,8 @@ function MoreStatsPage() {
 
     // console.log(fixedfgp)
 
+    console.log('gameid', game.id);
+
     const backButton = () => {
         history.push('/gamestats');
     }

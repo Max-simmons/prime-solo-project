@@ -68,7 +68,7 @@ function AddGameForm() {
             <label>
                 Points:
                 <input 
-                type='number'
+                type='text'
                 value={points}
                 onChange={(event) => setPoints(Number(event.target.value))}/>
             </label>
@@ -77,7 +77,7 @@ function AddGameForm() {
             <label>
                 Rebounds:
                 <input
-                type='number'
+                type='text'
                 value={rebounds}
                 onChange={(event) => setRebounds(Number(event.target.value))}/>
             </label>
@@ -86,7 +86,7 @@ function AddGameForm() {
             <label>
                 Assists:
                 <input
-                type='number'
+                type='text'
                 value={assists}
                 onChange={(event) => setAssists(Number(event.target.value))}/>
             </label>
@@ -95,7 +95,7 @@ function AddGameForm() {
             <label>
                 Steals:
                 <input
-                type='number'
+                type='text'
                 value={steals}
                 onChange={(event) => setSteals(Number(event.target.value))}/>
             </label>
@@ -104,7 +104,7 @@ function AddGameForm() {
             <label>
                 Blocks:
                 <input
-                type='number'
+                type='text'
                 value={blocks}
                 onChange={(event) => setBlocks(Number(event.target.value))}/>
             </label>
@@ -113,12 +113,12 @@ function AddGameForm() {
             <label>
                 Field Goals/Attempted 
                 <input
-                type='number'
+                type='text'
                 value={fg}
                 onChange={(event) => setFg(Number(event.target.value))}/>
                 <>/</>
                 <input
-                type='number'
+                type='text'
                 value={fga}
                 onChange={(event) => setFga(Number(event.target.value))}/>
             </label>
@@ -127,7 +127,7 @@ function AddGameForm() {
             <label>
                 Turnovers:
                 <input
-                type='number'
+                type='text'
                 value={turnovers}
                 onChange={(event) => setTurnovers(Number(event.target.value))}/>
             </label>
@@ -147,18 +147,19 @@ function AddGameForm() {
             <div>
                 <input
                 placeholder='My Team'
-                type='number'
+                type='text'
                 value={myTeam}
                 onChange={(event) => setMyteam(Number(event.target.value))}/>
                 vs
                 <input
                 placeholder='Opponent'
-                type='number'
+                type='text'
                 value={opp}
                 onChange={(event) => setOpp(Number(event.target.value))}/>
             </div>
-            <button onClick={handleClick}>Add Game</button>
             <button onClick={handleHome}>Home</button>
+            <button onClick={handleClick}>Add Game</button>
+            
 
 
             

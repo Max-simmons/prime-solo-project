@@ -81,7 +81,7 @@ function EditStatsForm() {
                 game_score: gameScore
             }
         })
-        history.push('/morestats/:id')
+        history.push(`/morestats/${game.id}`)
     }
 
     return (
@@ -92,7 +92,7 @@ function EditStatsForm() {
                     <label>
                         Points:
                         <input
-                            type='number'
+                            type='text'
                             value={points}
                             onChange={(event) => setPoints(Number(event.target.value))}
                         />
@@ -102,7 +102,7 @@ function EditStatsForm() {
                     <label>
                         Rebounds:
                         <input
-                            type='number'
+                            type='text'
                             value={rebounds}
                             onChange={(event) => setRebounds(Number(event.target.value))}
                         />
@@ -112,7 +112,7 @@ function EditStatsForm() {
                     <label>
                         Assists:
                         <input
-                            type='number'
+                            type='text'
                             value={assists}
                             onChange={(event) => setAssists(Number(event.target.value))}
                         />
@@ -122,7 +122,7 @@ function EditStatsForm() {
                     <label>
                         Steals:
                         <input
-                            type='number'
+                            type='text'
                             value={steals}
                             onChange={(event) => setSteals(Number(event.target.value))}
                         />
@@ -132,7 +132,7 @@ function EditStatsForm() {
                     <label>
                         Blocks:
                         <input
-                            type='number'
+                            type='text'
                             value={blocks}
                             onChange={(event) => setBlocks(Number(event.target.value))}
                         />
@@ -142,13 +142,13 @@ function EditStatsForm() {
                     <label>
                         Field Goals/Attempted
                         <input
-                            type='number'
+                            type='text'
                             value={fg}
                             onChange={(event) => setFg(Number(event.target.value))}
                         />
                         <>/</>
                         <input
-                            type='number'
+                            type='text'
                             value={fga}
                             onChange={(event) => setFga(Number(event.target.value))}
                         />
@@ -158,7 +158,7 @@ function EditStatsForm() {
                     <label>
                         Turnovers:
                         <input
-                            type='number'
+                            type='text'
                             value={turnovers}
                             onChange={(event) => setTurnovers(Number(event.target.value))}
                         />
