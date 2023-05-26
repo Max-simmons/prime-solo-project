@@ -48,7 +48,7 @@ function* finalizeStatsEdit(action) {
         const response = yield axios({
             method: 'PUT',
             url: `/api/stats/${editedStats.id}`,
-            data: editedStats = action.payload
+            data: editedStats
         })
         yield put ({
             type: 'SAGA/FETCH_STATS'
@@ -62,5 +62,6 @@ function* sagaFetchStats() {
     yield takeLatest('SAGA/FETCH_STATS', fetchStats);
     yield takeLatest('FETCH_FULL_GAME_STATS', fetchFullGameStats);
     yield takeLatest('FETCH_TOTAL_STATS', fetchTotalsStats);
+    yield takeLatest('FINALIZE_STAT_EDIT', finalizeStatsEdit)
 }
 export default sagaFetchStats;

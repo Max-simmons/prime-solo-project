@@ -107,5 +107,44 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.put('/:id', rejectUnauthenticated, (req,res) => {
+  console.log(req.body);
+
+    const newPoints = req.body.points;
+    const newRebounds = req.body.rebounds;
+    const newAssists = req.body.assists;
+    const newSteals = req.body.steals;
+    const newBlocks = req.body.blocks;
+    const newFg = req.body.fg;
+    const newFga = req.body.fga;
+    const newTurnovers = req.body.turnovers;
+    const statId = req.params.id;
+    const userId = req.user.id;
+
+    const sqlQuery = `
+    UPDATE "game_stats"
+      SET "points" = $1,
+      "rebounds" = $2,
+      "assists" = $3,
+      "steals" = $4,
+      "blocks" = $5,
+      "fg" = $6,
+      "fga" = $7,
+      "turnovers" = $8
+    WHERE "id" = $9
+      AND "user_id" = $10
+    `
+    const sqlValues = [newPoints, newRebounds, newAssists, newSteals,
+      newBlocks, newFg, newFga, newTurnovers, statId, userId];
+    
+    pool.query(sqlQuery, sqlValues)
+      .then((dbRes) => {
+        res.sendStatus(200);
+      })
+      .catch((dbErr) => {
+        console.log('PUT route fail', dbErr);
+        res.sendStatus(500);
+      })
+})
 
 module.exports = router;
