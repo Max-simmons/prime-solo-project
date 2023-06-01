@@ -82,6 +82,7 @@ function AddGameForm() {
             <div>
             <TextField
                 label='Points'
+                color='secondary'
                 size='small'
                 margin='normal'
                 type='text'
@@ -92,6 +93,7 @@ function AddGameForm() {
             <div>
             <TextField
                 label='Rebounds'
+                color='secondary'
                 size='small'
                 margin='normal'
                 type='text'
@@ -102,6 +104,7 @@ function AddGameForm() {
             <div>
             <TextField
                 label='Assists'
+                color='secondary'
                 size='small'
                 margin='normal'
                 type='text'
@@ -111,6 +114,7 @@ function AddGameForm() {
             <div>
             <TextField
                 label='Steals'
+                color='secondary'
                 size='small'
                 margin='normal'
                 type='text'
@@ -121,6 +125,7 @@ function AddGameForm() {
             <div>
             <TextField
                 label='Block'
+                color='secondary'
                 size='small'
                 margin='normal'
                 type='text'
@@ -131,6 +136,7 @@ function AddGameForm() {
             <div> 
                 <TextField
                 label='Field Goals'
+                color='secondary'
                 size='small'
                 margin='normal'
                 type='text'
@@ -139,6 +145,7 @@ function AddGameForm() {
                 
                 <TextField
                 label='FG Attempted'
+                color='secondary'
                 size='small'
                 margin='normal'
                 type='text'
@@ -148,6 +155,7 @@ function AddGameForm() {
             <div>
                 <TextField
                 label='Turnovers'
+                color='secondary'
                 margin='normal'
                 size='small'
                 type='text'
@@ -170,6 +178,7 @@ function AddGameForm() {
             <div>
                 <TextField
                 label='My Team'
+                color='secondary'
                 type='text'
                 size='small'
                 value={myTeam}
@@ -177,6 +186,7 @@ function AddGameForm() {
                 <>vs</>
                 <TextField
                 label='Opponent'
+                color='secondary'
                 margin='normal'
                 size='small'
                 type='text'
@@ -186,7 +196,7 @@ function AddGameForm() {
         </form>
         
         </section>
-        <div>
+        <div className ='buttonContainer'>
         <Button onClick= {handleHome} variant='contained' startIcon={<HomeIcon />}>Home</Button>
         <Button color='success' onClick={handleClick} variant='contained' startIcon={<AddCircleIcon />}>Add Game</Button>
 

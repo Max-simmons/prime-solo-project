@@ -1,0 +1,18 @@
+.buttonContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: stretch;
+        padding: 1em;
+}
+
+.buttonsTwo {
+    display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: stretch;
+}

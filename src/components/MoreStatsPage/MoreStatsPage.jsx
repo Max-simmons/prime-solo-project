@@ -8,6 +8,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Container } from '@mui/material';
+import { ButtonGroup } from '@mui/material'
+import './MoreStatsPage.css';
 
 
 
@@ -72,12 +74,21 @@ function MoreStatsPage() {
         <p>Turnover: {game.turnovers}</p>
         <p>Field Goals: {game.fg}/{game.fga}</p>
         <p>Field Goal Pecentage: {fixedfgp}%</p>
+        </div>
+        <div className='buttonContainer'>
         <Button onClick={backButton} variant='contained' startIcon={<ArrowBackIosIcon />}>Back</Button>
+        <ButtonGroup
+        orientation="vertical"
+        aria-label="vertical contained button group"
+        variant="contained"
+      >
         <Button onClick={editGame} variant='contained' startIcon={<EditIcon />}>Edit Stats</Button>
         <Button onClick ={deleteGame} variant="contained" startIcon={<DeleteIcon />}>
             Delete
         </Button>
+      </ButtonGroup>
         </div>
+        
         </Container>
         </>
 

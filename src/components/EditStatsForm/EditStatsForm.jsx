@@ -7,6 +7,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import SaveIcon from '@mui/icons-material/Save';
 import { Container } from '@mui/material';
 import { makeStyles } from '@mui/material';
+import './EditStatsForm.css';
 
 
 function EditStatsForm() {
@@ -178,7 +179,7 @@ function EditStatsForm() {
                     </label>
                 </div>
             </form>
-            <div>
+            <div className='buttonContainer'>
             <Button onClick={backButton} variant='contained' startIcon={<ArrowBackIosIcon />}>Back</Button>
             <Button className='right' onClick= {editStats} variant='contained' startIcon={<SaveIcon />}>Save</Button>
             </div>

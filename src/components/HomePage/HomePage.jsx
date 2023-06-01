@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Button } from '@mui/material';
 import { Container } from '@mui/material';
+import './HomePage.css';
 
 
 function UserPage() {
@@ -71,19 +72,25 @@ const rulesPage = () => {
     </header>
     <Container>
 
-   
+   <div className='buttonContainer'>
     <Button onClick={() => dispatch({ type: 'LOGOUT' })} variant = 'contained'>LOGOUT</Button>
+    
     <Button onClick= {rulesPage} variant = 'contained'>Rules</Button>
-  
+    </div>
+
     <div className="container">
       <h2>#{user.number} {user.username}</h2>
       <h4>{user.playstyle} {user.position}</h4>
       <p>GP: {totalGames} || PPG: {avgPts} || RPG: {avgReb} || APG: {avgAst} || TOPG: {avgTO} || AVG GAMESCORE: {avgGmSc}</p>
+
+      <div className='buttonsTwo'>
       
       <Button color='success' onClick={addGame} variant='contained' startIcon={<AddCircleIcon />}>Add Game</Button>
      
       <Button onClick={goToStats} variant='contained'>My Stats</Button>
       
+      </div>
+
     </div>
 
     </Container>
