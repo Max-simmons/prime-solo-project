@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Button } from '@mui/material';
+
 
 function GameItem({game}) {
 
@@ -33,7 +35,7 @@ return (
     <td>{game.assists}</td>
     <td>{game.turnovers}</td>
     <td>{game.game_score}</td>
-    <td><button onClick={moreStatsPage}>More Stats</button></td>
+    <td><Button onClick={moreStatsPage} size='small' color='secondary' variant='outlined'>More Stats</Button></td>
     {/* <td><button onClick={deleteGame}>Delete</button></td> */}
     </tr>
         

@@ -4,6 +4,10 @@ import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header/Header';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { Button } from '@mui/material';
+import { Container } from '@mui/material';
+
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -54,7 +58,9 @@ const addGame = () => {
     history.push("/addgame")
   }
 
-
+const rulesPage = () => {
+  history.push('/rules');
+}
 
 // console.log('points', total.total_points);
   
@@ -63,19 +69,24 @@ const addGame = () => {
     <header>
       <Header  />
     </header>
+    <Container>
+
+   
+    <Button onClick={() => dispatch({ type: 'LOGOUT' })} variant = 'contained'>LOGOUT</Button>
+    <Button onClick= {rulesPage} variant = 'contained'>Rules</Button>
+  
     <div className="container">
       <h2>#{user.number} {user.username}</h2>
       <h4>{user.playstyle} {user.position}</h4>
       <p>GP: {totalGames} || PPG: {avgPts} || RPG: {avgReb} || APG: {avgAst} || TOPG: {avgTO} || AVG GAMESCORE: {avgGmSc}</p>
       
+      <Button color='success' onClick={addGame} variant='contained' startIcon={<AddCircleIcon />}>Add Game</Button>
+     
+      <Button onClick={goToStats} variant='contained'>My Stats</Button>
       
-      <button onClick={goToStats}>My Stats</button>
-      <button onClick={addGame}>Add Game</button>
     </div>
 
-    <div>
-      <LogOutButton className="btn" />
-    </div>
+    </Container>
     </>
   );
 }

@@ -14,16 +14,25 @@ function RegisterForm() {
   const registerUser = (event) => {
     event.preventDefault();
 
-    dispatch({
-      type: 'REGISTER',
-      payload: {
-        username: username,
-        password: password,
-        number: number,
-        position: position,
-        playstyle: playstyle
-      },
-    });
+    if ( number <= -1 || number >= 100 ) {
+
+      alert('INVALID INPUT');
+    }
+
+
+    else {
+
+      dispatch({
+        type: 'REGISTER',
+        payload: {
+          username: username,
+          password: password,
+          number: number,
+          position: position,
+          playstyle: playstyle
+        },
+    })
+    };
   }; // end registerUser
 
   return (
@@ -76,9 +85,9 @@ function RegisterForm() {
         </label>
         <select id="position" onChange={(event) => setPosition(event.target.value)}>
           <option value="">--Choose Your Position--</option>
-          <option value="guard">Guard</option>
-          <option value="wing">Wing</option>
-          <option value="big">Big</option>
+          <option value="Guard">Guard</option>
+          <option value="Wing">Wing</option>
+          <option value="Big">Big</option>
         </select>
       </div>
       <div>
@@ -87,9 +96,16 @@ function RegisterForm() {
         </label>
         <select id="playstyle" onChange={(event) => setPlaystyle(event.target.value)}>
           <option value="">--How do you Play?--</option>
-          <option value="pass-first, defensive minded">Pass-first, Defensive minded</option>
-          <option value="two-way, sharpshooting">Two-way, Sharpshooting</option>
-          <option value="rim protecting, finishing">Rim Protecting, Finishing"</option>
+          <option value="Pass-first, Defensive minded">Pass-first, Defensive minded</option>
+          <option value="Offensive minded, Shot Creating">Offensive minded, Shot Creating</option>
+          <option value="Slashing, Playmaking">Slashing, Playmaking</option>
+          <option value="Athletic, Three-level Scoring">Athletic, Three-level Scoring</option>
+          <option value="Two-way, Sharpshooting">Two-way, Sharpshooting</option>
+          <option value='Athletic, Rim Attacking'>Athletic, Rim Attacking</option>
+          <option value="Rim Protecting, Finishing">Rim Protecting, Finishing"</option>
+          <option value="Post-Scoring, Glass Cleaning">Post-Scoring, Glass Cleaning</option>
+          <option value="Paint Protecting, Stretch">Paint Protecting, Stretch</option>
+          <option value='Defensive minded, Glass cleaning'>Defensive mined, Glass cleaning</option>
 
         </select>
       </div>

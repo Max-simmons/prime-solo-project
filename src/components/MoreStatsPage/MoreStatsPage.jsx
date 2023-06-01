@@ -2,6 +2,12 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import Header from '../Header/Header';
+import { Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Container } from '@mui/material';
 
 
 
@@ -44,10 +50,20 @@ function MoreStatsPage() {
         history.push(`/morestats/editstats/${game.id}`);
     }
 
+    console.log(game);
 
     return(
         <>
+        
+        <header>
+            <Header />
+        </header>
+        <Container >
+        <div>
         <h3>Full Game Stats</h3>
+        </div>
+
+        <div>
         <p>Points: {game.points}</p>
         <p>Assist: {game.assists}</p>
         <p>Rebounds: {game.rebounds}</p>
@@ -56,11 +72,13 @@ function MoreStatsPage() {
         <p>Turnover: {game.turnovers}</p>
         <p>Field Goals: {game.fg}/{game.fga}</p>
         <p>Field Goal Pecentage: {fixedfgp}%</p>
-        <button onClick= {backButton}>Back</button>
-        <button onClick={deleteGame}>Delete</button>
-        <button onClick={editGame}>Edit Game</button>
-
-        
+        <Button onClick={backButton} variant='contained' startIcon={<ArrowBackIosIcon />}>Back</Button>
+        <Button onClick={editGame} variant='contained' startIcon={<EditIcon />}>Edit Stats</Button>
+        <Button onClick ={deleteGame} variant="contained" startIcon={<DeleteIcon />}>
+            Delete
+        </Button>
+        </div>
+        </Container>
         </>
 
 )

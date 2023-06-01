@@ -4,6 +4,10 @@ import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 import './AddGameForm.css';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { Button } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import { TextField } from '@mui/material';
 
 function AddGameForm() {
     const [points, setPoints] = useState('');
@@ -37,6 +41,11 @@ function AddGameForm() {
 
     const handleClick = (event) => {
         event.preventDefault();
+
+        if (points > myTeam || fg > fga || fg > points || assists > myTeam)  {
+            alert('INVALID INPUT');
+        }
+        else {
         dispatch({
             type: 'SAGA/ADD_GAME',
             payload: {
@@ -56,7 +65,7 @@ function AddGameForm() {
         }) 
         history.push('/user')
     }
-
+}
     const handleHome = () => {
         history.push('/user');
     }
@@ -71,105 +80,115 @@ function AddGameForm() {
         <section className = "container">
         <form>
             <div>
-            <label>
-                Points:
-                <input 
+            <TextField
+                label='Points'
+                size='small'
+                margin='normal'
                 type='text'
                 value={points}
                 onChange={(event) => setPoints(Number(event.target.value))}/>
-            </label>
+            
             </div>
             <div>
-            <label>
-                Rebounds:
-                <input
+            <TextField
+                label='Rebounds'
+                size='small'
+                margin='normal'
                 type='text'
                 value={rebounds}
                 onChange={(event) => setRebounds(Number(event.target.value))}/>
-            </label>
+        
             </div>
             <div>
-            <label>
-                Assists:
-                <input
+            <TextField
+                label='Assists'
+                size='small'
+                margin='normal'
                 type='text'
                 value={assists}
                 onChange={(event) => setAssists(Number(event.target.value))}/>
-            </label>
             </div>
             <div>
-            <label>
-                Steals:
-                <input
+            <TextField
+                label='Steals'
+                size='small'
+                margin='normal'
                 type='text'
                 value={steals}
                 onChange={(event) => setSteals(Number(event.target.value))}/>
-            </label>
+            
             </div>
             <div>
-            <label>
-                Blocks:
-                <input
+            <TextField
+                label='Block'
+                size='small'
+                margin='normal'
                 type='text'
                 value={blocks}
                 onChange={(event) => setBlocks(Number(event.target.value))}/>
-            </label>
+            
             </div>
             <div> 
-            <label>
-                Field Goals/Attempted:
-                <input
+                <TextField
+                label='Field Goals'
+                size='small'
+                margin='normal'
                 type='text'
                 value={fg}
                 onChange={(event) => setFg(Number(event.target.value))}/>
-                <>/</>
-                <input
+                
+                <TextField
+                label='FG Attempted'
+                size='small'
+                margin='normal'
                 type='text'
                 value={fga}
                 onChange={(event) => setFga(Number(event.target.value))}/>
-            </label>
             </div>
             <div>
-            <label>
-                Turnovers:
-                <input
+                <TextField
+                label='Turnovers'
+                margin='normal'
+                size='small'
                 type='text'
                 value={turnovers}
                 onChange={(event) => setTurnovers(Number(event.target.value))}/>
-            </label>
             </div>
             <div>
-            <label>
-                Date:
-                <input
+            
+                <label>Date: </label>
+                <TextField
+                size='small'
                 type='date'
                 value={date}
                 onChange={(event) => setDate(event.target.value)}/>
-            </label>
+        
             </div>
             <div>
                 <h3>Score</h3>
             </div>
             <div>
-                <input
-                placeholder='My Team'
+                <TextField
+                label='My Team'
                 type='text'
+                size='small'
                 value={myTeam}
                 onChange={(event) => setMyteam(Number(event.target.value))}/>
-                vs
-                <input
-                placeholder='Opponent'
+                <>vs</>
+                <TextField
+                label='Opponent'
+                margin='normal'
+                size='small'
                 type='text'
                 value={opp}
-               
-               onChange={(event) => setOpp(Number(event.target.value))}/>
+                onChange={(event) => setOpp(Number(event.target.value))}/>
             </div>         
         </form>
         
         </section>
         <div>
-            <button onClick={handleHome}>Home</button>
-            <button onClick={handleClick}>Add Game</button>
+        <Button onClick= {handleHome} variant='contained' startIcon={<HomeIcon />}>Home</Button>
+        <Button color='success' onClick={handleClick} variant='contained' startIcon={<AddCircleIcon />}>Add Game</Button>
 
         </div>
 

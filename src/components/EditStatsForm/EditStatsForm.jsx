@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Header from '../Header/Header';
+import { Button } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import SaveIcon from '@mui/icons-material/Save';
+import { Container } from '@mui/material';
+import { makeStyles } from '@mui/material';
+
 
 function EditStatsForm() {
+    
 
     const params = useParams();
     const dispatch = useDispatch();
@@ -51,12 +59,11 @@ function EditStatsForm() {
                 fga,
                 turnovers
             }
-        })
+        })      
     }, [points, rebounds, assists, steals, blocks, fg, fga, turnovers])
     
     const backButton = () => {
         history.push(`/morestats/${game.id}`)
-
     }
 
     let result = (points) + (0.4 * fg) -
@@ -86,7 +93,13 @@ function EditStatsForm() {
 
     return (
         <>
+        <header>
+            <Header />
+        </header>
+        <Container> 
+        <div>
             <h3>Edit Game</h3>
+            </div>
             <form>
                 <div>
                     <label>
@@ -166,12 +179,10 @@ function EditStatsForm() {
                 </div>
             </form>
             <div>
-                <button onClick={backButton}>Back</button>
-                <button onClick= {editStats}>Save</button>
+            <Button onClick={backButton} variant='contained' startIcon={<ArrowBackIosIcon />}>Back</Button>
+            <Button className='right' onClick= {editStats} variant='contained' startIcon={<SaveIcon />}>Save</Button>
             </div>
-
-
-
+            </Container>
         </>
     )
 }

@@ -21,6 +21,9 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import MoreStatsPage from '../MoreStatsPage/MoreStatsPage';
 import EditStatsForm from '../EditStatsForm/EditStatsForm';
+import { createTheme, ThemeProvider } from '@mui/material';
+import RulesPage from '../RulesPage/RulesPage';
+
 
 import './App.css';
 
@@ -29,11 +32,27 @@ function App() {
 
   const user = useSelector(store => store.user);
 
+
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: 'rgba(252,164,19,1)'
+      },
+      secondary: {
+        main: '#000000'
+    }
+    }
+  })
+
+  
+  
+
   return (
+    <ThemeProvider theme={theme}>
     <Router>
       <div>
         {/* <Nav /> */}
@@ -60,6 +79,11 @@ function App() {
             path="/user"
           >
             <UserPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path= "/rules">
+            
+            <RulesPage />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -138,6 +162,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 

@@ -5,6 +5,10 @@ import { useEffect, useState } from 'react';
 import GameItem from './GameItem/GameItem';
 import './GameStats.css';
 import Header from '../Header/Header';
+import { Button } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import { Container } from '@mui/material';
+
 
 function GameStats() {
     const dispatch = useDispatch();
@@ -58,6 +62,7 @@ function GameStats() {
         <header>
             <Header />
         </header>
+        <Container>
         <div>
             <h2>My Stats</h2>
         </div>
@@ -133,8 +138,9 @@ function GameStats() {
         </div>
 
         <div>
-            <button onClick= {backButton}>Back</button>
+            <Button onClick={backButton} variant='contained' startIcon={<HomeIcon />}>Home</Button>
         </div>
+        </Container>
         </>
     )
 }

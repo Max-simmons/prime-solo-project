@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
+import './LoginPage.css'
 
 
 function LoginPage() {
@@ -8,8 +9,13 @@ function LoginPage() {
 
   return (
     <>
+    <div>
+    <img className = 'logo' src='/images/logo-3.jpg' alt='21 logo' width='200'/>
+    </div>
    
     <div>
+
+
       <LoginForm />
 
       <center>
