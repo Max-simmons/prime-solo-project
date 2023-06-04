@@ -40,7 +40,7 @@ router.get('/total', rejectUnauthenticated, (req, res) => {
 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
-  console.log(req.user.id);
+  console.log('In posting', req.user.id);
   const points = req.body.points
   const rebounds = req.body.rebounds
   const assists = req.body.assists

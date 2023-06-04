@@ -165,7 +165,7 @@ function AddGameForm() {
             <div>
             
                 <label>Date: </label>
-                <TextField
+                <input
                 size='small'
                 type='date'
                 value={date}
