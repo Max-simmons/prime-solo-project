@@ -1,9 +1,16 @@
 import Header from '../Header/Header';
 import { useHistory } from 'react-router-dom';
 import { Container } from '@mui/material';
+import { Button } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 
 function EndPage() {
+    const history = useHistory();
+    const backButton = () => {
+        history.push('/home');
+    }
+
 return (
     <>
     <Header />
@@ -21,7 +28,7 @@ return (
         <li>Heroku</li>
         <li>Material UI</li>
     </ul>
-
+    <Button onClick={backButton} variant='contained' startIcon={<ArrowBackIosIcon />}>Back</Button>
     </Container>
     </>
 )
