@@ -23,6 +23,7 @@ import MoreStatsPage from '../MoreStatsPage/MoreStatsPage';
 import EditStatsForm from '../EditStatsForm/EditStatsForm';
 import { createTheme, ThemeProvider } from '@mui/material';
 import RulesPage from '../RulesPage/RulesPage';
+import EndPage from '../EndPage/EndPage';
 
 
 import './App.css';
@@ -112,6 +113,14 @@ function App() {
             <EditStatsForm />
           </ProtectedRoute>
 
+          <ProtectedRoute 
+          
+          exact path = "/Thankyou">
+          <EndPage />
+
+          </ProtectedRoute>
+
+
           <Route
             exact
             path="/login"
@@ -139,6 +148,7 @@ function App() {
               <RegisterPage />
             }
           </Route>
+
 
           <Route
             exact

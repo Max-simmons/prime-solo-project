@@ -10,7 +10,8 @@ function LoginPage() {
   return (
     <>
     <div>
-    <img className = 'logo' src='/images/logo-3.jpg' alt='21 logo' width='200'/>
+    <img className = 'twoOne' src='/images/logo-3.jpg' alt='21 logo'
+    />
     </div>
    
     <div>
