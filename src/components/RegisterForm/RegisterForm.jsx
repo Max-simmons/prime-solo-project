@@ -105,7 +105,7 @@ function RegisterForm() {
           <option value="Rim Protecting, Finishing">Rim Protecting, Finishing"</option>
           <option value="Post-Scoring, Glass Cleaning">Post-Scoring, Glass Cleaning</option>
           <option value="Paint Protecting, Stretch">Paint Protecting, Stretch</option>
-          <option value='Defensive minded, Glass cleaning'>Defensive mined, Glass cleaning</option>
+          <option value='Defensive minded, Glass cleaning'>Defensive minded, Glass cleaning</option>
 
         </select>
       </div>
